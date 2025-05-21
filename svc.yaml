@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     app: flask
-    version: blue  # Initially set to blue version
   ports:
     - protocol: TCP
       port: 5000
