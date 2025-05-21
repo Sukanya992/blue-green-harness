@@ -1,3 +1,15 @@
+terraform {
+  required_providers {
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0" # Or whatever version you want
+    }
+  }
+}
 provider "google" {
   zone = var.region
   project = "plated-epigram-452709-h6"
