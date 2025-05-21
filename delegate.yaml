@@ -31,7 +31,7 @@ module "delegate" {
 
   account_id = "ucHySz2jQKKWQweZdXyCog"
   delegate_token = "NTRhYTY0Mjg3NThkNjBiNjMzNzhjOGQyNjEwOTQyZjY="
-  delegate_name = "delegate1-sukanya"
+  delegate_name = "delegate1-cluster"
   deploy_mode = "KUBERNETES"
   namespace = "harness-delegate-ng"
   manager_endpoint = "https://app.harness.io"
@@ -41,3 +41,4 @@ module "delegate" {
   depends_on = [google_container_cluster.primary]
 
 }
+
