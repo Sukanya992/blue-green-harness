@@ -6,7 +6,11 @@ data "google_container_cluster" "gke_cluster" {
   location = var.region # Change as per your cluster
   depends_on = [google_container_cluster.primary]
 }
-
+resource "kubernetes_namespace" "harness_delegate_ns" {
+  metadata {
+    name = "harness-delegate-ng"
+  }
+}
 # Kubernetes Provider using GKE authentication
 provider "kubernetes" {
   host                   = "https://${data.google_container_cluster.gke_cluster.endpoint}"
@@ -38,6 +42,6 @@ module "delegate" {
   delegate_image = "us-docker.pkg.dev/gar-prod-setup/harness-public/harness/delegate:25.04.85701"
   replicas = 1
   upgrader_enabled = true
-  depends_on = [google_container_cluster.primary]
+  depends_on = [google_container_cluster.primary,kubernetes_namespace.harness_delegate_ns]
 
 }
