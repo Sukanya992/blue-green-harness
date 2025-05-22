@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: sukanya996/bule-green:green-46  # Use Harness variable if needed
+        image: sukanya996/blue:green
+      #  image: sukanya996/bule-green:green-46  # Use Harness variable if needed
         ports:
         - containerPort: 5000
